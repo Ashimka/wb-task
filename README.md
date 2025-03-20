@@ -64,7 +64,8 @@ yarn dev
 
 - **Метод:** `GET`
 - **URL:** `/api/questions`
-  Описание
+
+Описание
 
 - Получает вопросы от Wildberries
 
