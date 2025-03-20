@@ -44,3 +44,23 @@ export const saveOutgoingMessage = async (data) => {
     log("error", `Ошибка при обработке сообщений: ${error.message}`);
   }
 };
+
+export const autoQuestions = async (id) => {
+  try {
+    return await prisma.message.findFirst({
+      where: {
+        customerId: id,
+      },
+      select: {
+        text: true,
+        responses: {
+          select: {
+            text: true,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    log("error", `Ошибка при получении сообщений: ${error.message}`);
+  }
+};

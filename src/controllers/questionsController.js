@@ -1,5 +1,6 @@
 import { wbApi } from "../config/api.js";
 import {
+  autoQuestions,
   getAutoResponse,
   saveOutgoingMessage,
 } from "../services/questionsService.js";
@@ -35,4 +36,21 @@ export const getQuestions = async (req, res) => {
       });
     }
   }
+};
+
+export const getAutoQuestions = async (req, res) => {
+  const { id } = req.params;
+  const question = await autoQuestions(id);
+
+  if (!question) {
+    return res.status(200).json({
+      question: "",
+      answer: "Нет подходящего ответа",
+    });
+  }
+
+  return res.status(200).json({
+    question: question.text,
+    answer: question.responses[0].text,
+  });
 };
