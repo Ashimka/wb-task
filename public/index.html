@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вопросы и ответы</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Сообщения</h1>
+      <div class="filters">
+        <label>
+          Сортировка:
+          <select id="order">
+            <option value="dateDesc">Сначала новые</option>
+            <option value="dateAsc">Сначала старые</option>
+          </select>
+        </label>
+        <label>
+          Статус:
+          <select id="isRead">
+            <option value="false">Непрочитанные</option>
+            <option value="true">Прочитанные</option>
+          </select>
+        </label>
+        <button id="applyFilters">Применить</button>
+      </div>
+      <ul id="messageList"></ul>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
